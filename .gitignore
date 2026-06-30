@@ -1,0 +1,13 @@
+.env
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+.agent_logs/
+.agents/
+.codex/
+chroma_db/
+
+*.log

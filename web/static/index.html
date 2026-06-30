@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Local File Agent</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="workbench">
+        <header class="topbar">
+          <div>
+            <h1>Local File Agent</h1>
+            <p>文件分析、RAG 检索、工具调用与写操作审批</p>
+          </div>
+          <div class="status-pill" id="statusPill">待命</div>
+        </header>
+
+        <section class="settings">
+          <label>
+            <span>根目录</span>
+            <input id="rootDir" value="E:\agent" spellcheck="false" />
+          </label>
+          <label>
+            <span>最大步骤</span>
+            <input id="maxSteps" type="number" min="1" max="20" value="10" />
+          </label>
+          <button id="memoryBtn" type="button">查看记忆</button>
+        </section>
+
+        <section class="chat" id="chat"></section>
+
+        <form class="composer" id="composer">
+          <textarea id="message" rows="3" placeholder="输入你想让 agent 处理的任务..."></textarea>
+          <button id="sendBtn" type="submit">发送</button>
+        </form>
+      </section>
+
+      <aside class="inspector">
+        <section class="metrics">
+          <div>
+            <span>总耗时</span>
+            <strong id="totalTime">0ms</strong>
+          </div>
+          <div>
+            <span>工具步数</span>
+            <strong id="stepCount">0</strong>
+          </div>
+          <div>
+            <span>当前节点</span>
+            <strong id="currentNode">-</strong>
+          </div>
+        </section>
+
+        <section class="approval hidden" id="approval">
+          <h2>写操作审批</h2>
+          <pre id="approvalText"></pre>
+          <div class="approval-actions">
+            <button id="approveBtn" type="button">批准</button>
+            <button id="denyBtn" type="button">拒绝</button>
+          </div>
+        </section>
+
+        <section class="timeline">
+          <h2>运行轨迹</h2>
+          <div id="timeline" class="timeline-list"></div>
+        </section>
+      </aside>
+    </main>
+
+    <dialog id="memoryDialog">
+      <header>
+        <h2>会话记忆</h2>
+        <button id="closeMemory" type="button">关闭</button>
+      </header>
+      <pre id="memoryText"></pre>
+    </dialog>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

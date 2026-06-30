@@ -1,0 +1,11 @@
+langgraph
+langchain-openai
+python-dotenv
+python-docx
+pypdf
+langchain-chroma
+langchain-text-splitters
+langchain-core
+langchain-huggingface
+sentence-transformers
+socksio
